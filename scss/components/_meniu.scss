@@ -1,0 +1,61 @@
+.meniu {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    z-index: 2;
+    .container-span {
+        
+        height: 100%;
+        width: 100%;
+        @include flexy($just: center, $dir: column);
+        row-gap: 5px;
+        position:relative;
+        align-items: center;
+        & span {
+            position: relative;
+            width: 50%;
+            background-color: white;
+            height: 3px;
+            display: block;
+            transform-origin: right;
+        }
+        & span:nth-child(1) {
+            transform: skewY(var(--first-span));
+            transition: 0.5s all ease-in-out;
+        }
+        & span:nth-child(3) {
+            transform: skewY(var(--second-span));
+            transition: 0.5s all ease-in-out;
+        }
+        & span:nth-child(2) {
+            opacity: 1;
+            opacity: var(--opacity-span);
+            transition: 0.5s all ease-in-out;
+        }
+        &::after{
+            content:'';
+            position:absolute;
+            width: 100%;
+            height: 100%;
+            border: 10px solid;
+            border-image-slice: 1;
+            border-width: 3px;
+            border-image-source: linear-gradient(to top, #012230, #046a92);
+            box-shadow: 0 3px 9px black, inset 0 0 9px white;
+            transition:0.5s all ease-in-out;
+            opacity:var(--opacity-after);
+            transform: rotate(var(--rotate));
+            
+        }
+
+  
+
+    }
+
+    @include mq('lg'){
+        display: none;
+    }
+
+
+
+}

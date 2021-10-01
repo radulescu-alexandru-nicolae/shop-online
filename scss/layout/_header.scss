@@ -1,0 +1,60 @@
+
+header{
+    grid-area: head;
+    & .container-header{
+        width: 90%;
+        margin:auto;
+        margin-top:30px;
+        @include flexy($dir:column);
+        & ul{
+            padding:0;
+            list-style:none;
+            @include flexy($dir:row,$just:space-between);
+            column-gap: 10px;
+            text-transform: uppercase;
+            justify-content: center;
+        }
+        & .search{
+            border:1px solid black;
+            @include flexy($dir:row,$just:space-between);
+            align-items: center;
+            padding:5px 0px 5px;
+            margin:auto;
+
+
+            & input{
+                border:none;
+                height: 100%;
+            
+            }
+            ::-webkit-input-placeholder{
+                padding-left:10px;
+            }
+            & i{
+                margin-right: 10px;
+            }
+
+        }
+       
+    }
+
+    & .poster{
+        margin-top:20px;
+        & img{
+        width: 100%;
+        height: 200px;
+    
+    }
+    }
+    @include mq('lg'){
+        & .container-header{
+            @include flexy($dir:row,$just:space-between);
+            & .search{
+                max-width: none;
+                margin:unset;
+            }
+
+
+        }
+    }
+}

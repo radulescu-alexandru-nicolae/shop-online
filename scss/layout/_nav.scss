@@ -1,0 +1,100 @@
+nav{
+    background-color: $background;
+    max-height: 100px;
+    position:relative;
+    grid-area: nav;
+
+    @include flexy($dir:row);
+    align-items: center;
+
+    & .container-nav{
+
+        width: 90%;
+        margin:auto;
+        @include flexy($dir:row,$just:space-between);
+
+        align-items: center;
+        height: 90%;
+
+        & .logo{
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;
+        }
+
+        & ul{
+            position:absolute;
+            list-style: none;
+            background-color: $background;
+            top:84%;
+            right:0;
+            padding:0;
+            transform:translateX(-100%);
+            opacity:0;
+            transition:0.5s all ease-in-out;
+            box-shadow: 0 3px 9px black, inset 0 0 9px white;
+            z-index: -1;
+
+            & li{
+                color:white;
+                padding:20px;
+                font-size: 20px;
+                text-transform: uppercase;
+                text-align: center;
+                cursor: pointer;
+                &:nth-last-child(1){
+                    position:relative;
+                }
+            }
+        
+            & ol{
+                padding:0;
+                left:0;
+                position:absolute;
+                top:100%;
+                z-index:100;
+                opacity:1;
+
+                & li{
+                    padding:0;
+                    color:black;
+                    @include flexy($dir:column);
+                    align-items: center;
+                    background-color: gray;
+                    & img{
+                        width: 80%;
+                    }
+                 
+                }
+            }
+        }   
+        }
+        @include mq('lg'){
+          & .container-nav{
+            & .logo{
+                  width: 70px;
+                  height: 70px;
+              }
+              & ul{
+                  position:unset;
+                  top:0;
+                  background-color: unset;
+                  box-shadow: unset;
+                  @include flexy($dir:row);
+                  opacity:1;
+                  z-index: 1;
+                  transform:translate(0);
+                  & li{
+                      @include flexy($dir:row);
+                      column-gap: 5px;
+                  }
+               
+              }
+
+
+
+          }
+        }
+
+
+    }
