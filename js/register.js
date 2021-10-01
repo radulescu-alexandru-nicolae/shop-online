@@ -1,5 +1,6 @@
 import CustomerController from "./Controllers/CustomerController.js";
-
+import { loginF } from "./login.js";
+const container_main=document.querySelector('.container-main');
 const register=document.querySelector('.register');
 export  function isValidPassword(password){
     return /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(password);
@@ -22,14 +23,6 @@ function validOrNot(show,element){
         element.style.background="unset";
     }
 }
-function handle(validator){
-    return e=>{
-        const text=e.target.value;
-        const valid=validator(text);
-        const show=text!==""&&!valid;
-        validOrNot(show,e.target);
-    }
-}
 const email=document.querySelector('.email');
 const password=document.querySelector('.first-password');
 const second_password=document.querySelector('.second-password');
@@ -39,27 +32,61 @@ const phone=document.querySelector('.phone');
 const shipping_addres=document.querySelector('.shipping-addres');
 const button=document.querySelector('.create-account');
 
-
+const span=document.querySelector('p span');
+const login=`
+<section class="login">
+<h2>Login</h2>
+<input type="text" placeholder="Your Email" class="email">
+<input type="text" placeholder="Your Password" class="first-password">
+<button class="login-button">Sign In</button>
+<p>If you want to create an account <span>Register</span></p>
+</section>
+`;
 let customController=new CustomerController();
+let check=0;
 export function registerFunction()
 {
-email.addEventListener("input",handle(isValidEmail));
-    password.addEventListener("input",handle(isValidPassword));
-    full_name.addEventListener("input",handle(isValidFullName));
-    country.addEventListener("input",handle(isNotBlank));
-    
-    second_password.addEventListener("input",(e)=>{
-        if(second_password.value!==password.value){
-            validOrNot(true,second_password);
-        }else{ 
-              validOrNot(false,second_password);
-        }
-    })
-
-    button.addEventListener("click",(e)=>{
-        console.log('a');
-        customController.create(email.value,password.value,full_name.value,shipping_addres.value,country.value,phone.value);
-
-    })
-  
+button.addEventListener("click",(e)=>{
+    if(isValidEmail(email.value)===true){
+    validOrNot(!isValidEmail(email.value),email);
+    check++;
+}
+if(isValidFullName(full_name.value)===true){
+    validOrNot(!isValidFullName(full_name.value),full_name);
+    check++;
+}
+if(isValidPassword(password.value)===true){
+    validOrNot(!isValidPassword(password.value),password);
+    check++;
+}
+if(password.value===second_password.value){
+    validOrNot(false,second_password);
+    check++;
+}else{
+    validOrNot(true,second_password);
+}
+if(isNotBlank(shipping_addres.value)===true){
+    check++;
+}
+if(isNotBlank(country.value)===true){
+    check++;
+}
+if(check>=6){
+    customController.create(email.value,password.value,full_name.value,shipping_addres.value,customController.value,phone.value);
+    container_main.innerHTML=login;
+}else{
+    check=0;
+}
+}) 
+}
+span.addEventListener('click',(e)=>{
+    container_main.innerHTML=login;
+    checkLogin();
+})
+function checkLogin(){
+    if(document.querySelector('.login-button')!==null){
+        loginF();
+    }else{
+        console.log('b');
+    }
 }

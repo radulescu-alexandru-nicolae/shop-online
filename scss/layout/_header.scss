@@ -20,8 +20,6 @@ header{
             align-items: center;
             padding:5px 0px 5px;
             margin:auto;
-
-
             & input{
                 border:none;
                 height: 100%;
@@ -54,7 +52,17 @@ header{
                 margin:unset;
             }
 
+          
 
         }
+        & .poster{
+            height: 400px;
+
+            & img{
+                height: 100%;
+            }
+        }
+
     }
+    
 }

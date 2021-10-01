@@ -3,7 +3,6 @@ export default class CustomerController{
     constructor(){
         this.customers=[];
         this.load();
-        this.afisare();
     }
     afisare=()=>{
         this.customers.forEach(e=>e.afisare());
@@ -38,7 +37,6 @@ export default class CustomerController{
     checkEmail(email){
         let ok=0;
         this.customers.forEach(e=>{
-
             if(e.email===email){
                 ok=1;
             }
@@ -47,5 +45,20 @@ export default class CustomerController{
             return true;
         }
         return false;
+    }
+    connect=(email,password)=>{
+        let ok=0;
+        this.customers.forEach(e=>{
+            if(e.email===email&&e.password===password){
+                ok=1;
+            }
+          
+        })
+        if(ok===1){
+            return true;
+        }else{
+            return false;
+        }
+    
     }
 }
