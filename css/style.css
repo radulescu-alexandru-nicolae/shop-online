@@ -353,6 +353,7 @@ nav {
   background-color: #043C52;
   max-height: 100px;
   position: relative;
+  min-height: 100px;
   grid-area: nav;
   display: flex;
   flex-direction: row;
@@ -495,46 +496,44 @@ header .poster img {
     margin: unset;
   }
   header .poster {
-    height: 400px;
+    height: 600px;
   }
   header .poster img {
     height: 100%;
   }
 }
 
-main .container-main {
+main {
+  margin-top: 50px;
+}
+main .container-main .lista-carduri {
   width: 95%;
   margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 20px;
-  row-gap: 20px;
+  row-gap: 50px;
 }
-main .container-main .product {
-  background-color: #046a92;
-  border-radius: 15px;
-  padding-bottom: 20px;
-  max-width: 600px;
+main .container-main .lista-carduri .card {
+  max-width: 500px;
   width: 80%;
 }
-main .container-main .product h2 {
-  color: white;
-  margin-left: 10px;
-  width: 80%;
-}
-main .container-main .product h2 span {
-  text-transform: uppercase;
-}
-main .container-main .product img {
+main .container-main .lista-carduri .card img {
   width: 100%;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
 }
 @media (min-width: 1024px) {
-  main .container-main {
+  main .container-main .lista-carduri {
+    width: 90%;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 2000px;
+    column-gap: 50px;
+  }
+}
+@media (min-width: 2000px) {
+  main .container-main .lista-carduri {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -597,6 +596,8 @@ main .container-main .product img {
 
 .register {
   text-align: center;
+  width: 95%;
+  margin: auto;
   display: flex;
   flex-direction: column;
   row-gap: 20px;
@@ -624,6 +625,8 @@ main .container-main .product img {
 }
 
 .login {
+  width: 80%;
+  margin: auto;
   display: flex;
   flex-direction: column;
   row-gap: 20px;
@@ -675,6 +678,93 @@ main .container-main .product img {
   width: 100%;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+}
+
+.card {
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 3px 4px 12px 1px rgba(0, 0, 0, 0.3);
+}
+.card .dimon-shape {
+  position: absolute;
+  top: -10px;
+  left: -20px;
+  background: aqua;
+  height: 60px;
+  text-align: center;
+  transform: rotate(45deg);
+  width: 60px;
+}
+.card .dimon-shape .price {
+  color: #333;
+  display: table-cell;
+  height: 60px;
+  transform: rotate(-45deg);
+  vertical-align: middle;
+  width: 60px;
+  font-size: 20px;
+}
+.card .text .item-name {
+  font-size: 25px;
+}
+.card .text .sku {
+  color: gray;
+  font-size: 18px;
+}
+.card .view-more {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  margin-top: 20px;
+}
+.card .view-more .view {
+  cursor: pointer;
+  background-color: #020202;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+}
+.card .view-more .view span {
+  margin-left: 10px;
+}
+.card .view-more .text-more {
+  display: none;
+  background-color: #6b6a6a;
+}
+.card .view-more .text-more p {
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+  text-align: left;
+  margin-left: 30px;
+}
+.card .view-more .text-more p span {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.buttons {
+  margin-top: 50px;
+}
+.buttons ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  column-gap: 20px;
+}
+.buttons ul li {
+  padding: 15px;
+  background-color: #009494;
+  color: white;
+  border-radius: 10px;
 }
 
 /*# sourceMappingURL=style.css.map */

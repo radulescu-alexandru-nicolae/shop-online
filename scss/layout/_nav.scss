@@ -2,6 +2,7 @@ nav{
     background-color: $background;
     max-height: 100px;
     position:relative;
+    min-height: 100px;
     grid-area: nav;
 
     @include flexy($dir:row);

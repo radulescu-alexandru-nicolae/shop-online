@@ -1,0 +1,17 @@
+.buttons{
+    margin-top:50px;
+    & ul{
+        list-style: none;
+        @include flexy($dir:row);
+        align-items: center;
+        justify-content: center;
+        column-gap: 20px;
+
+        & li{
+            padding:15px;
+            background-color: rgb(0, 148, 148);
+            color:white;
+            border-radius: 10px;
+        }
+    }
+}

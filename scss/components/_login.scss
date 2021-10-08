@@ -1,4 +1,6 @@
 .login{
+    width: 80%;
+    margin:auto;
     @include flexy($dir:column);
     row-gap: 20px;
     & input{

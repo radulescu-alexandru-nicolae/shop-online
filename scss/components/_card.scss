@@ -1,0 +1,73 @@
+.card{
+    position:relative;
+    text-align: center;
+    @include flexy($dir:column)
+    ;
+
+    box-shadow: 3px 4px 12px 1px rgba(0,0,0,0.3);
+ 
+& .dimon-shape {
+    position:absolute;
+    top:-10px;
+    left:-20px;
+    background: aqua;
+    height: 60px;
+    text-align: center;
+    transform:rotate(45deg);
+      width:60px;
+
+      & .price{
+        color: #333;
+        display: table-cell;
+        height: 60px;
+        transform: rotate(-45deg);
+        vertical-align: middle;
+          width:60px;
+          font-size: 20px;
+
+      }
+
+     
+  }
+  & .text{
+    & .item-name{
+        font-size: 25px;
+    }
+
+    & .sku{
+        color:gray;
+        font-size: 18px;
+    }   
+}
+& .view-more{
+    @include flexy($dir:column);
+    color:white;
+    margin-top:20px;
+    & .view{
+        cursor: pointer;
+    background-color: rgb(2, 2, 2);
+    padding-bottom:20px;
+    padding-top:20px;
+    @include flexy($dir:row,$just:center);
+    align-items: center;
+    font-size: 25px;
+    & span{
+        margin-left:10px;
+    }
+    }
+    & .text-more{
+        display: none;
+        background-color:rgb(107, 106, 106) ;
+        & p{
+            @include flexy($dir:row);
+            column-gap: 20px;
+            text-align: left;
+            margin-left:30px;
+            & span{
+                text-transform: uppercase;
+                font-weight: bold;
+            }
+        }
+    }
+}
+}

@@ -34,6 +34,16 @@ export default class CustomerController{
             })
         }
     }
+    delete=()=>{
+        this.customers.forEach(e=>{
+            if(e.id===id){
+                this.customers.pop(id);
+            }
+
+        })
+        window.localStorage.removeItem("account");
+        window.localStorage.setItem("account",JSON.stringify(this.customers));
+    }
     checkEmail(email){
         let ok=0;
         this.customers.forEach(e=>{
